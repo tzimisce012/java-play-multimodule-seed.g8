@@ -1,18 +1,19 @@
+import Dependencies._
+import Commons._
+
 name := """$name$"""
 
 lazy val $module1$ = project.
-  enablePlugins(PlayJava).
-  settings(
-    scalaVersion := "2.12.2",
-    libraryDependencies += guice
-  )
+  enablePlugins(BuildInfoPlugin, PlayJava).
+  settings(buildInfoSettings).
+  settings(commonSettings).
+  settings(libraryDependencies ++= $module2$Dependencies)
 
 lazy val $module2$ = project.
-  enablePlugins(PlayJava).
-  settings(
-    scalaVersion := "2.12.2",
-    libraryDependencies += guice
-  )
+  enablePlugins(BuildInfoPlugin, PlayJava).
+  settings(buildInfoSettings).
+  settings(commonSettings).
+  settings(libraryDependencies ++= $module2$Dependencies)
 
 lazy val root = project in file(".")
 
