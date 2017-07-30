@@ -1,5 +1,6 @@
 import sbt._
 import Keys._
+import play.sbt.PlayImport.{cache, filters, javaWs}
 
 object Dependencies {
 
@@ -13,9 +14,15 @@ object Dependencies {
     scalaTestPlay % Test
   )
 
+  val playDependencies: Seq[ModuleID] = Seq(
+    filters,
+    javaWs,
+    cache
+  )
 
-  val $module1$Dependencies: Seq[ModuleID] = commonDependencies
-  val $module2$Dependencies: Seq[ModuleID] = commonDependencies
+
+  val $module1$Dependencies: Seq[ModuleID] = commonDependencies ++ playDependencies
+  val $module2$Dependencies: Seq[ModuleID] = commonDependencies ++ playDependencies
 
 
 }
