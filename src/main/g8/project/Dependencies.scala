@@ -8,7 +8,7 @@ object Dependencies {
 
   val commonDependencies: Seq[ModuleID] = Seq(
     logBackJson,
-    logBackJackson,
+    logBackJackson
   )
 
   val playDependencies: Seq[ModuleID] = Seq(
